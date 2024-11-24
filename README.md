@@ -5,7 +5,7 @@
 A TypeScript-based REST API for car store management with MongoDB integration.
 
 ## Live Links
-- API: [Your Deployment URL]
+- API: [https://car-store-api1.vercel.app]
 
 ## Key Features
 - [x] Car inventory management
