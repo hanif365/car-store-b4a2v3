@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
+import carRoutes from "./app/modules/car/car.route";
 
 const app: Application = express();
 
@@ -9,17 +10,19 @@ app.use(cors());
 // API welcome route
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
-    success: true,
     message: "Welcome to Car Store API",
+    success: true,
   });
 });
 
 // API health check route
 app.get("/health", (req: Request, res: Response) => {
   res.status(200).json({
-    success: true,
     message: "Server is running smoothly",
+    success: true,
   });
 });
+
+app.use(carRoutes);
 
 export default app;
