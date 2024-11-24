@@ -10,10 +10,10 @@ const createCar = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: unknown) {
-    res.status(400).json({
+    res.status(404).json({
       message: error instanceof Error ? error.message : "Failed to create car",
       success: false,
-      error: error instanceof Error ? error.message : String(error),
+      error,
       stack: error instanceof Error ? error.stack : undefined,
     });
   }
@@ -30,25 +30,25 @@ const getAllCars = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: unknown) {
-    res.status(400).json({
+    res.status(404).json({
       message: error instanceof Error ? error.message : "Failed to get cars",
       status: false,
-      error: error instanceof Error ? error.message : String(error),
+      error,
       stack: error instanceof Error ? error.stack : undefined,
     });
   }
 };
 
-const getSingleCar = async (req: Request, res: Response) => {
+const getASpecificCar = async (req: Request, res: Response) => {
   try {
-    const result = await CarService.getSingleCar(req.params.carId);
+    const result = await CarService.getASpecificCar(req.params.carId);
     res.status(200).json({
       message: "Car retrieved successfully",
       status: true,
       data: result,
     });
   } catch (error: unknown) {
-    res.status(400).json({
+    res.status(404).json({
       message: error instanceof Error ? error.message : "Failed to get car",
       status: false,
       error: error instanceof Error ? error.message : String(error),
@@ -66,7 +66,7 @@ const updateCar = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: unknown) {
-    res.status(400).json({
+    res.status(404).json({
       message: error instanceof Error ? error.message : "Failed to update car",
       status: false,
       error: error instanceof Error ? error.message : String(error),
@@ -84,7 +84,7 @@ const deleteCar = async (req: Request, res: Response) => {
       data: {},
     });
   } catch (error: unknown) {
-    res.status(400).json({
+    res.status(404).json({
       message: error instanceof Error ? error.message : "Failed to delete car",
       status: false,
       error: error instanceof Error ? error.message : String(error),
@@ -96,7 +96,7 @@ const deleteCar = async (req: Request, res: Response) => {
 export const CarController = {
   createCar,
   getAllCars,
-  getSingleCar,
+  getASpecificCar,
   updateCar,
   deleteCar,
 };

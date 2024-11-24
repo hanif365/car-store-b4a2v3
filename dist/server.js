@@ -16,13 +16,13 @@ const app_1 = __importDefault(require("./app"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = __importDefault(require("./app/config"));
 const PORT = config_1.default.port || 5001;
-const DATABASE_URI = config_1.default.mongodbUri;
+const MONGODB_URI = config_1.default.mongodbUri;
 const bootstrap = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        if (!DATABASE_URI) {
+        if (!MONGODB_URI) {
             throw new Error("MONGODB_URI environment variable is not defined");
         }
-        yield mongoose_1.default.connect(DATABASE_URI);
+        yield mongoose_1.default.connect(MONGODB_URI);
         console.log("Database connection successful!!!");
         app_1.default.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);

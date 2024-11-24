@@ -20,10 +20,11 @@ const getAllCars = async (searchTerm?: string) => {
   }
 
   const result = await CarModel.find(query);
+
   return result;
 };
 
-const getSingleCar = async (carId: string) => {
+const getASpecificCar = async (carId: string) => {
   const result = await CarModel.findById(carId);
 
   if (!result) {
@@ -61,7 +62,7 @@ const deleteCar = async (carId: string) => {
 export const CarService = {
   createCar,
   getAllCars,
-  getSingleCar,
+  getASpecificCar,
   updateCar,
   deleteCar,
 };

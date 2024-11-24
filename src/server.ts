@@ -3,15 +3,15 @@ import mongoose from "mongoose";
 import config from "./app/config";
 
 const PORT = config.port || 5001;
-const DATABASE_URI = config.mongodbUri;
+const MONGODB_URI = config.mongodbUri;
 
 const bootstrap = async () => {
   try {
-    if (!DATABASE_URI) {
+    if (!MONGODB_URI) {
       throw new Error("MONGODB_URI environment variable is not defined");
     }
 
-    await mongoose.connect(DATABASE_URI);
+    await mongoose.connect(MONGODB_URI);
     console.log("Database connection successful!!!");
 
     app.listen(PORT, () => {

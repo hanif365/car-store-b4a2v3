@@ -32,7 +32,7 @@ const getAllCars = (searchTerm) => __awaiter(void 0, void 0, void 0, function* (
     const result = yield car_model_1.default.find(query);
     return result;
 });
-const getSingleCar = (carId) => __awaiter(void 0, void 0, void 0, function* () {
+const getASpecificCar = (carId) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield car_model_1.default.findById(carId);
     if (!result) {
         throw new Error("Car not found!!");
@@ -60,7 +60,7 @@ const deleteCar = (carId) => __awaiter(void 0, void 0, void 0, function* () {
 exports.CarService = {
     createCar,
     getAllCars,
-    getSingleCar,
+    getASpecificCar,
     updateCar,
     deleteCar,
 };

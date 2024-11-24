@@ -6,7 +6,7 @@ const router = (0, express_1.Router)();
 const API_PREFIX = "/api/cars";
 router.post(API_PREFIX, car_controller_1.CarController.createCar);
 router.get(API_PREFIX, car_controller_1.CarController.getAllCars);
-router.get(`${API_PREFIX}/:carId`, car_controller_1.CarController.getSingleCar);
+router.get(`${API_PREFIX}/:carId`, car_controller_1.CarController.getASpecificCar);
 router.put(`${API_PREFIX}/:carId`, car_controller_1.CarController.updateCar);
 router.delete(`${API_PREFIX}/:carId`, car_controller_1.CarController.deleteCar);
 exports.default = router;

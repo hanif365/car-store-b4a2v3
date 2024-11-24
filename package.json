@@ -1,11 +1,12 @@
 {
   "name": "car-store-b4a2v3",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
     "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "start:preprod": "tsc-watch --onSuccess \"node dist/server.js\""
+    "start:preprod": "tsc-watch --onSuccess \"node dist/server.js\"",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "hanif",

@@ -21,10 +21,10 @@ const createCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
     catch (error) {
-        res.status(400).json({
+        res.status(404).json({
             message: error instanceof Error ? error.message : "Failed to create car",
             success: false,
-            error: error instanceof Error ? error.message : String(error),
+            error,
             stack: error instanceof Error ? error.stack : undefined,
         });
     }
@@ -40,17 +40,17 @@ const getAllCars = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         });
     }
     catch (error) {
-        res.status(400).json({
+        res.status(404).json({
             message: error instanceof Error ? error.message : "Failed to get cars",
             status: false,
-            error: error instanceof Error ? error.message : String(error),
+            error,
             stack: error instanceof Error ? error.stack : undefined,
         });
     }
 });
-const getSingleCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getASpecificCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const result = yield car_service_1.CarService.getSingleCar(req.params.carId);
+        const result = yield car_service_1.CarService.getASpecificCar(req.params.carId);
         res.status(200).json({
             message: "Car retrieved successfully",
             status: true,
@@ -58,7 +58,7 @@ const getSingleCar = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         });
     }
     catch (error) {
-        res.status(400).json({
+        res.status(404).json({
             message: error instanceof Error ? error.message : "Failed to get car",
             status: false,
             error: error instanceof Error ? error.message : String(error),
@@ -76,7 +76,7 @@ const updateCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
     catch (error) {
-        res.status(400).json({
+        res.status(404).json({
             message: error instanceof Error ? error.message : "Failed to update car",
             status: false,
             error: error instanceof Error ? error.message : String(error),
@@ -94,7 +94,7 @@ const deleteCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
     catch (error) {
-        res.status(400).json({
+        res.status(404).json({
             message: error instanceof Error ? error.message : "Failed to delete car",
             status: false,
             error: error instanceof Error ? error.message : String(error),
@@ -105,7 +105,7 @@ const deleteCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.CarController = {
     createCar,
     getAllCars,
-    getSingleCar,
+    getASpecificCar,
     updateCar,
     deleteCar,
 };
