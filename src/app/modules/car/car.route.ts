@@ -1,9 +1,9 @@
-import { Router } from "express";
-import { CarController } from "./car.controller";
+import { Router } from 'express';
+import { CarController } from './car.controller';
 
 const router = Router();
 
-const API_PREFIX = "/api/cars";
+const API_PREFIX = '/api/cars';
 
 router.post(API_PREFIX, CarController.createCar);
 router.get(API_PREFIX, CarController.getAllCars);

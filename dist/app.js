@@ -11,16 +11,16 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 // API welcome route
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
     res.status(200).json({
-        message: "Welcome to Car Store API",
+        message: 'Welcome to Car Store API',
         success: true,
     });
 });
 // API health check route
-app.get("/health", (req, res) => {
+app.get('/health', (req, res) => {
     res.status(200).json({
-        message: "Server is running smoothly",
+        message: 'Server is running smoothly',
         success: true,
     });
 });

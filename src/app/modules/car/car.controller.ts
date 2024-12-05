@@ -1,17 +1,17 @@
-import { Request, Response } from "express";
-import { CarService } from "./car.service";
+import { Request, Response } from 'express';
+import { CarService } from './car.service';
 
 const createCar = async (req: Request, res: Response) => {
   try {
     const result = await CarService.createCar(req.body);
     res.status(201).json({
-      message: "Car created successfully",
+      message: 'Car created successfully',
       success: true,
       data: result,
     });
   } catch (error: unknown) {
     res.status(404).json({
-      message: error instanceof Error ? error.message : "Failed to create car",
+      message: error instanceof Error ? error.message : 'Failed to create car',
       success: false,
       error,
       stack: error instanceof Error ? error.stack : undefined,
@@ -25,13 +25,13 @@ const getAllCars = async (req: Request, res: Response) => {
     const result = await CarService.getAllCars(searchTerm as string);
 
     res.status(200).json({
-      message: "Cars retrieved successfully",
+      message: 'Cars retrieved successfully',
       status: true,
       data: result,
     });
   } catch (error: unknown) {
     res.status(404).json({
-      message: error instanceof Error ? error.message : "Failed to get cars",
+      message: error instanceof Error ? error.message : 'Failed to get cars',
       status: false,
       error,
       stack: error instanceof Error ? error.stack : undefined,
@@ -43,13 +43,13 @@ const getASpecificCar = async (req: Request, res: Response) => {
   try {
     const result = await CarService.getASpecificCar(req.params.carId);
     res.status(200).json({
-      message: "Car retrieved successfully",
+      message: 'Car retrieved successfully',
       status: true,
       data: result,
     });
   } catch (error: unknown) {
     res.status(404).json({
-      message: error instanceof Error ? error.message : "Failed to get car",
+      message: error instanceof Error ? error.message : 'Failed to get car',
       status: false,
       error: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
@@ -61,13 +61,13 @@ const updateCar = async (req: Request, res: Response) => {
   try {
     const result = await CarService.updateCar(req.params.carId, req.body);
     res.status(200).json({
-      message: "Car updated successfully",
+      message: 'Car updated successfully',
       status: true,
       data: result,
     });
   } catch (error: unknown) {
     res.status(404).json({
-      message: error instanceof Error ? error.message : "Failed to update car",
+      message: error instanceof Error ? error.message : 'Failed to update car',
       status: false,
       error: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
@@ -77,15 +77,15 @@ const updateCar = async (req: Request, res: Response) => {
 
 const deleteCar = async (req: Request, res: Response) => {
   try {
-    const result = await CarService.deleteCar(req.params.carId);
+    await CarService.deleteCar(req.params.carId);
     res.status(200).json({
-      message: "Car deleted successfully",
+      message: 'Car deleted successfully',
       status: true,
       data: {},
     });
   } catch (error: unknown) {
     res.status(404).json({
-      message: error instanceof Error ? error.message : "Failed to delete car",
+      message: error instanceof Error ? error.message : 'Failed to delete car',
       status: false,
       error: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,

@@ -15,14 +15,14 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     try {
         const result = yield order_service_1.OrderService.createOrder(req.body);
         res.status(201).json({
-            message: "Order created successfully",
+            message: 'Order created successfully',
             status: true,
             data: result,
         });
     }
     catch (error) {
         res.status(404).json({
-            message: error instanceof Error ? error.message : "Failed to create order",
+            message: error instanceof Error ? error.message : 'Failed to create order',
             success: false,
             error,
             stack: error instanceof Error ? error.stack : undefined,
@@ -33,7 +33,7 @@ const getRevenue = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         const totalRevenue = yield order_service_1.OrderService.calculateRevenue();
         res.status(200).json({
-            message: "Revenue calculated successfully",
+            message: 'Revenue calculated successfully',
             status: true,
             data: {
                 totalRevenue,
@@ -42,7 +42,7 @@ const getRevenue = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
     catch (error) {
         res.status(404).json({
-            message: error instanceof Error ? error.message : "Failed to calculate revenue",
+            message: error instanceof Error ? error.message : 'Failed to calculate revenue',
             success: false,
             error,
             stack: error instanceof Error ? error.stack : undefined,

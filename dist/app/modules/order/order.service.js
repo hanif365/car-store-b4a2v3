@@ -19,10 +19,10 @@ const createOrder = (orderData) => __awaiter(void 0, void 0, void 0, function* (
     // Find car and check stock
     const car = yield car_model_1.default.findById(orderData.car);
     if (!car) {
-        throw new Error("Car not found");
+        throw new Error('Car not found');
     }
     if (!car.inStock || car.quantity < orderData.quantity) {
-        throw new Error("Insufficient stock");
+        throw new Error('Insufficient stock');
     }
     // Create order
     const order = yield order_model_1.default.create(orderData);
@@ -40,7 +40,7 @@ const calculateRevenue = () => __awaiter(void 0, void 0, void 0, function* () {
         {
             $group: {
                 _id: null,
-                totalRevenue: { $sum: "$totalPrice" },
+                totalRevenue: { $sum: '$totalPrice' },
             },
         },
     ]);

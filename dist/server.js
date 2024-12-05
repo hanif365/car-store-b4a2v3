@@ -24,7 +24,7 @@ const bootstrap = () => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
     catch (error) {
-        console.error("Failed to start server:", error);
+        console.error('Failed to start server:', error);
         process.exit(1);
     }
 });

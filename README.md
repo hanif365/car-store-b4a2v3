@@ -5,9 +5,11 @@
 A TypeScript-based REST API for car store management with MongoDB integration.
 
 ## Live Links
+
 - API: [https://car-store-api1.vercel.app]
 
 ## Key Features
+
 - [x] Car inventory management
 - [x] Order processing with stock validation
 - [x] Revenue calculation using MongoDB aggregation
@@ -15,6 +17,7 @@ A TypeScript-based REST API for car store management with MongoDB integration.
 - [x] Email validation & error handling
 
 ## Tech Stack
+
 - TypeScript
 - Express.js
 - MongoDB
@@ -23,7 +26,7 @@ A TypeScript-based REST API for car store management with MongoDB integration.
 ## Installation Guide
 
 1. Clone & Install:
-   
+
 ```bash
 git clone https://github.com/hanif365/car-store-b4a2v3.git
 cd car-store-b4a2v3
@@ -39,14 +42,17 @@ MONGODB_URI=your_mongodb_uri
 
 3. Run Project:
 
- - [x] For Development
- ```bash
- npm run start:dev
- ```
- - [x] For Production
- ```bash
- npm start
- ```
+- [x] For Development
+
+```bash
+npm run start:dev
+```
+
+- [x] For Production
+
+```bash
+npm start
+```
 
 ## API Endpoints
 
@@ -66,8 +72,3 @@ DELETE /api/cars/:carId # Delete car
 POST /api/orders # Create order
 GET /api/orders/revenue # Get total revenue
 ```
-
-
-   
-
-

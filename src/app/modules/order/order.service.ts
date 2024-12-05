@@ -1,17 +1,16 @@
-import { Types } from "mongoose";
-import Order from "./order.model";
-import Car from "../car/car.model";
-import { TOrder } from "./order.interface";
+import Order from './order.model';
+import Car from '../car/car.model';
+import { TOrder } from './order.interface';
 
 const createOrder = async (orderData: TOrder) => {
   // Find car and check stock
   const car = await Car.findById(orderData.car);
   if (!car) {
-    throw new Error("Car not found");
+    throw new Error('Car not found');
   }
 
   if (!car.inStock || car.quantity < orderData.quantity) {
-    throw new Error("Insufficient stock");
+    throw new Error('Insufficient stock');
   }
 
   // Create order
@@ -34,7 +33,7 @@ const calculateRevenue = async () => {
     {
       $group: {
         _id: null,
-        totalRevenue: { $sum: "$totalPrice" },
+        totalRevenue: { $sum: '$totalPrice' },
       },
     },
   ]);

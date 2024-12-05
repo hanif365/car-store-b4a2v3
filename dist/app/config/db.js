@@ -17,13 +17,13 @@ const index_1 = __importDefault(require("./index"));
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (!index_1.default.mongodbUri) {
-            throw new Error("MONGODB_URI environment variable is not defined");
+            throw new Error('MONGODB_URI environment variable is not defined');
         }
         yield mongoose_1.default.connect(index_1.default.mongodbUri);
-        console.log("Database connection successful!!!");
+        console.log('Database connection successful!!!');
     }
     catch (error) {
-        console.error("Failed to connect to database:", error);
+        console.error('Failed to connect to database:', error);
         process.exit(1);
     }
 });

@@ -1,5 +1,5 @@
-import { TCar } from "./car.interface";
-import CarModel from "./car.model";
+import { TCar } from './car.interface';
+import CarModel from './car.model';
 
 const createCar = async (carData: TCar) => {
   const result = await CarModel.create(carData);
@@ -10,14 +10,14 @@ const getAllCars = async (searchTerm?: string) => {
   let query = {};
 
   if (searchTerm) {
-    searchTerm = searchTerm.replace(/^"|"$/g, "");
-    console.log("searchTerm", searchTerm);
+    searchTerm = searchTerm.replace(/^"|"$/g, '');
+    console.log('searchTerm', searchTerm);
 
     query = {
       $or: [
-        { brand: { $regex: searchTerm, $options: "i" } },
-        { model: { $regex: searchTerm, $options: "i" } },
-        { category: { $regex: searchTerm, $options: "i" } },
+        { brand: { $regex: searchTerm, $options: 'i' } },
+        { model: { $regex: searchTerm, $options: 'i' } },
+        { category: { $regex: searchTerm, $options: 'i' } },
       ],
     };
   }
@@ -31,7 +31,7 @@ const getASpecificCar = async (carId: string) => {
   const result = await CarModel.findById(carId);
 
   if (!result) {
-    throw new Error("Car not found!!");
+    throw new Error('Car not found!!');
   }
 
   return result;
@@ -44,7 +44,7 @@ const updateCar = async (carId: string, carData: Partial<TCar>) => {
   });
 
   if (!result) {
-    throw new Error("Car not found to update");
+    throw new Error('Car not found to update');
   }
 
   return result;
@@ -53,10 +53,10 @@ const updateCar = async (carId: string, carData: Partial<TCar>) => {
 const deleteCar = async (carId: string) => {
   const result = await CarModel.findByIdAndDelete(carId);
 
-  console.log("result", result);
+  console.log('result', result);
 
   if (!result) {
-    throw new Error("Car not found which you want to delete");
+    throw new Error('Car not found which you want to delete');
   }
 
   return result;

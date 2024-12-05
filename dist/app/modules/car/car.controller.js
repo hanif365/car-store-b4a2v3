@@ -15,14 +15,14 @@ const createCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield car_service_1.CarService.createCar(req.body);
         res.status(201).json({
-            message: "Car created successfully",
+            message: 'Car created successfully',
             success: true,
             data: result,
         });
     }
     catch (error) {
         res.status(404).json({
-            message: error instanceof Error ? error.message : "Failed to create car",
+            message: error instanceof Error ? error.message : 'Failed to create car',
             success: false,
             error,
             stack: error instanceof Error ? error.stack : undefined,
@@ -34,14 +34,14 @@ const getAllCars = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         const { searchTerm } = req.query;
         const result = yield car_service_1.CarService.getAllCars(searchTerm);
         res.status(200).json({
-            message: "Cars retrieved successfully",
+            message: 'Cars retrieved successfully',
             status: true,
             data: result,
         });
     }
     catch (error) {
         res.status(404).json({
-            message: error instanceof Error ? error.message : "Failed to get cars",
+            message: error instanceof Error ? error.message : 'Failed to get cars',
             status: false,
             error,
             stack: error instanceof Error ? error.stack : undefined,
@@ -52,14 +52,14 @@ const getASpecificCar = (req, res) => __awaiter(void 0, void 0, void 0, function
     try {
         const result = yield car_service_1.CarService.getASpecificCar(req.params.carId);
         res.status(200).json({
-            message: "Car retrieved successfully",
+            message: 'Car retrieved successfully',
             status: true,
             data: result,
         });
     }
     catch (error) {
         res.status(404).json({
-            message: error instanceof Error ? error.message : "Failed to get car",
+            message: error instanceof Error ? error.message : 'Failed to get car',
             status: false,
             error: error instanceof Error ? error.message : String(error),
             stack: error instanceof Error ? error.stack : undefined,
@@ -70,14 +70,14 @@ const updateCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield car_service_1.CarService.updateCar(req.params.carId, req.body);
         res.status(200).json({
-            message: "Car updated successfully",
+            message: 'Car updated successfully',
             status: true,
             data: result,
         });
     }
     catch (error) {
         res.status(404).json({
-            message: error instanceof Error ? error.message : "Failed to update car",
+            message: error instanceof Error ? error.message : 'Failed to update car',
             status: false,
             error: error instanceof Error ? error.message : String(error),
             stack: error instanceof Error ? error.stack : undefined,
@@ -86,16 +86,16 @@ const updateCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 const deleteCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const result = yield car_service_1.CarService.deleteCar(req.params.carId);
+        yield car_service_1.CarService.deleteCar(req.params.carId);
         res.status(200).json({
-            message: "Car deleted successfully",
+            message: 'Car deleted successfully',
             status: true,
             data: {},
         });
     }
     catch (error) {
         res.status(404).json({
-            message: error instanceof Error ? error.message : "Failed to delete car",
+            message: error instanceof Error ? error.message : 'Failed to delete car',
             status: false,
             error: error instanceof Error ? error.message : String(error),
             stack: error instanceof Error ? error.stack : undefined,
