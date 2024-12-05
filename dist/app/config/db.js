@@ -12,20 +12,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const app_1 = __importDefault(require("./app"));
-const db_1 = __importDefault(require("./app/config/db"));
-const config_1 = __importDefault(require("./app/config"));
-const PORT = config_1.default.port || 5001;
-const bootstrap = () => __awaiter(void 0, void 0, void 0, function* () {
+const mongoose_1 = __importDefault(require("mongoose"));
+const index_1 = __importDefault(require("./index"));
+const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield (0, db_1.default)();
-        app_1.default.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-        });
+        if (!index_1.default.mongodbUri) {
+            throw new Error("MONGODB_URI environment variable is not defined");
+        }
+        yield mongoose_1.default.connect(index_1.default.mongodbUri);
+        console.log("Database connection successful!!!");
     }
     catch (error) {
-        console.error("Failed to start server:", error);
+        console.error("Failed to connect to database:", error);
         process.exit(1);
     }
 });
-bootstrap();
+exports.default = connectDB;

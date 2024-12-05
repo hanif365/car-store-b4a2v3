@@ -10,6 +10,9 @@ const getAllCars = async (searchTerm?: string) => {
   let query = {};
 
   if (searchTerm) {
+    searchTerm = searchTerm.replace(/^"|"$/g, "");
+    console.log("searchTerm", searchTerm);
+
     query = {
       $or: [
         { brand: { $regex: searchTerm, $options: "i" } },

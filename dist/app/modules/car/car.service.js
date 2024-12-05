@@ -21,6 +21,8 @@ const createCar = (carData) => __awaiter(void 0, void 0, void 0, function* () {
 const getAllCars = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
     let query = {};
     if (searchTerm) {
+        searchTerm = searchTerm.replace(/^"|"$/g, "");
+        console.log("searchTerm", searchTerm);
         query = {
             $or: [
                 { brand: { $regex: searchTerm, $options: "i" } },
