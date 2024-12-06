@@ -13,7 +13,8 @@ exports.CarController = void 0;
 const car_service_1 = require("./car.service");
 const createCar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const result = yield car_service_1.CarService.createCar(req.body);
+        const { car: carData } = req.body;
+        const result = yield car_service_1.CarService.createCar(carData);
         res.status(201).json({
             message: 'Car created successfully',
             success: true,

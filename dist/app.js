@@ -10,17 +10,21 @@ const order_route_1 = __importDefault(require("./app/modules/order/order.route")
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
-// API welcome route
+// Welcome route
 app.get('/', (req, res) => {
     res.status(200).json({
         message: 'Welcome to Car Store API',
+        version: '1.0.0',
+        documentation: '/api-docs',
         success: true,
     });
 });
-// API health check route
+// Health check route
 app.get('/health', (req, res) => {
     res.status(200).json({
-        message: 'Server is running smoothly',
+        status: 'healthy',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime(),
         success: true,
     });
 });
